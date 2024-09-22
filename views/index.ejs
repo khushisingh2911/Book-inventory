@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Inventory</title>
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+  
+  
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="landing-page">
+   
+    <div class="left-section">
+      <img src="/css/images/books.jpg" alt="Books Background" class="landing-image">
+    </div>
+
+   
+    <div class="right-section">
+      <div class="content-wrapper">
+        <h1>Welcome to the Billy your own Book Inventory📚</h1>
+        <h>This page is all about your fav books where you can add export and filter your choices.</h>
+
+        <form action="/search" method="POST">
+          <h3>Search Books</h3>
+          <label for="query">Search by Title:</label>
+          <input type="text" id="query" name="query" required>
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="action-links">
+          
+          <a href="/export/csv">Export CSV</a>
+        </div>
+
+        <% if (showBooks) { %> 
+          <h2>All Books</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Publication Date</th>
+                <th>ISBN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% books.forEach(book => { %>
+                <tr>
+                  <td><%= book.title %></td>
+                  <td><%= book.author %></td>
+                  <td><%= book.genre %></td>
+                  <td><%= book.publication_date %></td>
+                  <td><%= book.isbn %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <p>No books found for this genre.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <%- include('partials/footer') %>
+
+</body>
+</html>

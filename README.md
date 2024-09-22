@@ -52,4 +52,7 @@ PORT=3000
 2.Search Functionality: The requirement to search for books by title and author required careful consideration of query performance. Indexing the relevant columns in the database improved search speed and efficiency.
 
 
+3 Another manjor hurdle I faced is to deploy on vercel , I added all the code to github then connected it to vercel but it still shows me 404 error. I an still trying to solve that error so you can see my website through a link without actually running it on your device.
+
+
 This documentation provides an overview of how to set up and use the Book Inventory Management System. By following these instructions, you should be able to clone the repository, set up the database, and run the application successfully. Feel free to reach out if you encounter any issues or have further questions!
